@@ -14,7 +14,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--fondo);color:var(--texto);font-family:Poppins,"Segoe UI",system-ui,sans-serif;
   font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 .envoltura{max-width:var(--ancho);margin:0 auto;padding:0 20px}
 
@@ -82,7 +82,9 @@ section{padding:84px 0}
 
 .galeria{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 @media(max-width:760px){.galeria{grid-template-columns:1fr}}
-.galeria figure{background:var(--panel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.galeria figure{background:var(--panel);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column}
+.galeria .marco{flex:1;display:grid;place-items:center;background:#0b0d13;padding:22px;border-bottom:1px solid var(--borde)}
+.galeria .marco img{border-radius:10px;box-shadow:0 20px 50px -20px rgba(0,0,0,.9);border:1px solid var(--borde)}
 .galeria figcaption{padding:16px 20px;color:var(--tenue);font-size:14.5px}
 .galeria figcaption b{color:var(--texto);display:block;font-size:16px;margin-bottom:2px}
 
