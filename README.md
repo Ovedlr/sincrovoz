@@ -7,7 +7,7 @@
 - Quitar ruido de fondo y normalizar el volumen para redes (−14 LUFS)
 - Extraer el audio en WAV, MP3 o pista original
 
-🌐 Sitio web: https://ovedlr.github.io/sincrovoz
+🌐 Sitio web: https://sincrovoz.com
 ⬇️ Descarga: [última versión](https://github.com/Ovedlr/sincrovoz/releases/latest)
 ✉️ Soporte: soporte.dgbusiness@gmail.com
 
