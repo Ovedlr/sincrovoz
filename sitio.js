@@ -1,7 +1,7 @@
 // Enlaces de la tienda: cámbialos aquí y se actualizan en toda la página.
 var SINCROVOZ = {
-  // Enlace del checkout de Lemon Squeezy (Producto > Share). Mientras tanto, la tienda.
-  comprar: "https://sincrovoz.lemonsqueezy.com",
+  // Enlace de compra del producto en Payhip.
+  comprar: "https://payhip.com/b/fencS",
   // Instalador publicado en GitHub (Releases > Latest).
   descargar: "https://github.com/Ovedlr/sincrovoz/releases/latest"
 };
