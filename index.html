@@ -7,74 +7,173 @@
 <meta name="description" content="SincroVoz es un programa para Windows que corrige automáticamente la voz desfasada en tus videos, sin perder calidad. Recorta, quita el ruido de fondo, normaliza el volumen para redes y extrae el audio.">
 <meta property="og:title" content="SincroVoz · Voz e imagen en su sitio">
 <meta property="og:description" content="Corrige automáticamente la voz desfasada de tus videos, sin perder calidad. Para Windows.">
-<meta property="og:image" content="img/w1_principal.webp">
+<meta property="og:image" content="https://sincrovoz.com/img/w1_principal.webp">
+<meta name="theme-color" content="#0f1118">
 <link rel="icon" href="img/favicon.png">
+<link rel="preload" href="fuentes/Poppins-Bold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+<div class="progreso" aria-hidden="true"></div>
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="#"><img src="img/logo.png" alt="">SincroVoz</a>
-    <nav class="menu">
+    <a class="marca" href="#inicio"><img src="img/logo.png" alt="">SincroVoz</a>
+    <nav class="menu" id="menu">
+      <a href="#demo">Pruébalo</a>
       <a href="#funciones">Funciones</a>
+      <a href="#audio">Audio</a>
       <a href="#como">Cómo funciona</a>
       <a href="#precio">Precio</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="boton primario chico" data-comprar href="#precio">Comprar</a>
+    <a class="boton primario chico" href="#precio">Comprar</a>
+    <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
+<main id="inicio">
+  <!-- PORTADA -->
   <section class="portada">
     <div class="envoltura">
-      <span class="etiqueta">Precio de lanzamiento · 4,99 USD</span>
-      <h1>La voz y la imagen de tu video, <span class="grad">otra vez en su sitio</span></h1>
-      <p class="bajada">SincroVoz detecta y corrige automáticamente el desfase entre la voz y el video, sin perder calidad de imagen. Arrastra tu video, pulsa un botón y listo.</p>
-      <div class="acciones">
+      <span class="etiqueta revelar" data-cupon-vigente>Precio de lanzamiento · 4,99 USD hasta el 15 de diciembre</span>
+      <h1 class="revelar">La voz y la imagen de tu video, <span class="grad">otra vez en su sitio</span></h1>
+      <p class="bajada revelar">SincroVoz detecta y corrige automáticamente el desfase entre la voz y el video, sin perder calidad de imagen. Arrastra tu video, pulsa un botón y listo.</p>
+      <div class="acciones revelar">
         <a class="boton primario" href="#precio">Comprar licencia</a>
-        <a class="boton secundario" data-descargar href="#">Descargar prueba gratis</a>
+        <a class="boton secundario" href="#demo">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          Ver la demo
+        </a>
       </div>
-      <p class="nota">Para Windows 8.1, 10 y 11 · Pruébalo completo antes de comprar</p>
-      <div class="captura"><div class="linea-grad"></div><img src="img/w1_principal.webp" width="1440" height="810" alt="Ventana principal de SincroVoz con un video sincronizado, la línea de tiempo y las opciones de audio"></div>
+      <p class="nota revelar">Para Windows 8.1, 10 y 11 · <a data-descargar href="#">Descarga la prueba gratis</a> y úsala con tus videos</p>
+
+      <div class="escena revelar">
+        <div class="captura inclinable">
+          <div class="linea-grad"></div>
+          <img src="img/w1_principal.webp" width="1440" height="810" alt="Ventana principal de SincroVoz con un video sincronizado, la línea de tiempo y las opciones de audio">
+          <div class="brillo" aria-hidden="true"></div>
+        </div>
+        <div class="flotante f1" aria-hidden="true"><span class="punto rojo"></span>Desfase detectado <b>+240 ms</b></div>
+        <div class="flotante f2" aria-hidden="true"><span class="punto verde"></span>Corregido <b>0 ms</b></div>
+        <div class="flotante f3" aria-hidden="true">Imagen sin recomprimir <b>100 %</b></div>
+      </div>
     </div>
   </section>
 
+  <!-- CIFRAS -->
+  <section class="cifras">
+    <div class="envoltura cifras-rejilla">
+      <div class="cifra revelar"><b data-contar="1" data-sufijo=" ms">0 ms</b><span>Precisión de la corrección</span></div>
+      <div class="cifra revelar"><b data-contar="8">0</b><span>Formatos de video</span></div>
+      <div class="cifra revelar"><b data-contar="-14" data-sufijo=" LUFS">0 LUFS</b><span>Volumen listo para redes</span></div>
+      <div class="cifra revelar"><b data-contar="2">0</b><span>Computadores por licencia</span></div>
+    </div>
+  </section>
+
+  <!-- DEMO INTERACTIVA -->
+  <section id="demo">
+    <div class="envoltura">
+      <div class="titulo revelar">
+        <span class="sobre">Pruébalo aquí</span>
+        <h2>Mueve el desfase y mira (y escucha) el problema</h2>
+        <p>Así se ve un video con la voz atrasada. Activa el sonido, arrastra el control y después deja que SincroVoz lo corrija.</p>
+      </div>
+
+      <div class="demo revelar" id="demoSync">
+        <div class="demo-video">
+          <div class="pantalla">
+            <div class="rec"><span></span>REC</div>
+            <svg class="cara" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="gCara" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffb23e"/><stop offset=".5" stop-color="#ff6a3d"/><stop offset="1" stop-color="#e0366f"/>
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="92" r="62" fill="url(#gCara)" opacity=".95"/>
+              <circle cx="78" cy="80" r="7" fill="#0f1118"/>
+              <circle cx="122" cy="80" r="7" fill="#0f1118"/>
+              <rect class="boca" x="80" y="112" width="40" height="6" rx="3" fill="#0f1118"/>
+              <path d="M40 200c6-34 30-52 60-52s54 18 60 52" fill="url(#gCara)" opacity=".55"/>
+            </svg>
+            <div class="onda-voz" aria-hidden="true"></div>
+            <div class="sello" data-sello>Desfasado</div>
+          </div>
+          <div class="pistas">
+            <div class="pista"><span class="pista-nombre">Imagen · boca</span><div class="carril" data-carril="imagen"></div></div>
+            <div class="pista"><span class="pista-nombre">Audio · voz</span><div class="carril" data-carril="voz"></div></div>
+            <div class="cabezal" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="demo-panel">
+          <div class="lectura">
+            <span>Desfase actual</span>
+            <b data-lectura>+240 ms</b>
+            <small data-explica>La voz llega después que la boca</small>
+          </div>
+
+          <label class="deslizador">
+            <span class="sr">Desfase en milisegundos</span>
+            <input type="range" min="-400" max="400" step="10" value="240" data-desfase>
+            <span class="marcas"><i>−400 ms</i><i>0</i><i>+400 ms</i></span>
+          </label>
+
+          <div class="demo-botones">
+            <button class="boton secundario" data-sonido aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path class="ondas" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+              <span>Activar sonido</span>
+            </button>
+            <button class="boton primario" data-corregir>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg>
+              <span>Corregir con SincroVoz</span>
+            </button>
+          </div>
+          <div class="analisis" data-analisis hidden>
+            <div class="barra-avance"><i></i></div>
+            <span data-fase>Analizando imagen…</span>
+          </div>
+          <p class="demo-nota">Demostración ilustrativa. En la app, el cálculo se hace sobre tu video real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNCIONES -->
   <section id="funciones">
     <div class="envoltura">
-      <div class="titulo">
+      <div class="titulo revelar">
         <span class="sobre">Funciones</span>
         <h2>Todo lo que tu video necesita antes de publicarlo</h2>
         <p>Pensado para músicos, docentes, creadores de contenido y cualquiera que grabe con el celular o la cámara y descubra que la voz no coincide con la boca.</p>
       </div>
       <div class="rejilla">
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></div>
           <h3>Sincronización automática</h3>
           <p>Analiza imagen y sonido y calcula el desfase al milisegundo. También corrige el desfase que va creciendo a lo largo del video.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg></div>
           <h3>Sin perder calidad</h3>
           <p>La imagen no se vuelve a comprimir: queda idéntica al original. Solo se ajusta el audio, y tu archivo original nunca se modifica.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="M8.5 8.5 20 18M8.5 15.5 20 6"/></svg></div>
           <h3>Recorte en la línea de tiempo</h3>
           <p>Arrastra los tiradores sobre las miniaturas y la forma de onda, y reproduce el tramo elegido antes de guardar.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12h2M6 8v8M10 5v14M14 9v6M18 7v10M22 12h-2"/></svg></div>
           <h3>Quitar ruido de fondo</h3>
           <p>Reduce ventiladores, aire acondicionado, zumbidos y soplido, protegiendo la voz y los instrumentos. Tres intensidades.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18V6M10 18V9M16 18v-5M22 18H2"/></svg></div>
           <h3>Volumen listo para redes</h3>
           <p>Un botón deja el audio al nivel recomendado por YouTube, Instagram, Facebook y TikTok (−14 LUFS), sin picos que distorsionen.</p>
         </article>
-        <article class="tarjeta">
+        <article class="tarjeta foco revelar">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
           <h3>Extraer el audio</h3>
           <p>Guarda el sonido en WAV de 24 bits para editar, en MP3 de 320 kbps para compartir, o como copia exacta de la pista original.</p>
@@ -83,50 +182,151 @@
     </div>
   </section>
 
+  <!-- LABORATORIO DE AUDIO -->
+  <section id="audio" class="banda">
+    <div class="envoltura">
+      <div class="titulo revelar">
+        <span class="sobre">Laboratorio de audio</span>
+        <h2>Limpia y nivela el sonido sin salir de la app</h2>
+        <p>Elige una herramienta y juega con ella.</p>
+      </div>
+
+      <div class="lab revelar" id="lab">
+        <div class="pestanas" role="tablist">
+          <button role="tab" aria-selected="true" data-tab="ruido">Quitar ruido</button>
+          <button role="tab" aria-selected="false" data-tab="volumen">Normalizar volumen</button>
+          <button role="tab" aria-selected="false" data-tab="extraer">Extraer audio</button>
+        </div>
+
+        <div class="lab-cuerpo" data-panel="ruido">
+          <canvas class="lienzo" data-lienzo-ruido width="900" height="220" aria-label="Forma de onda con ruido de fondo"></canvas>
+          <div class="lab-controles">
+            <div class="segmentos" role="radiogroup" aria-label="Intensidad de reducción de ruido">
+              <button role="radio" aria-checked="true" data-intensidad="0">Sin filtro</button>
+              <button role="radio" aria-checked="false" data-intensidad="1">Suave</button>
+              <button role="radio" aria-checked="false" data-intensidad="2">Media</button>
+              <button role="radio" aria-checked="false" data-intensidad="3">Fuerte</button>
+            </div>
+            <button class="boton secundario chico" data-escuchar-ruido aria-pressed="false">Escuchar</button>
+          </div>
+          <p class="lab-nota" data-nota-ruido>El ventilador y el zumbido tapan la voz.</p>
+        </div>
+
+        <div class="lab-cuerpo" data-panel="volumen" hidden>
+          <div class="medidor">
+            <div class="medidor-escala"><i style="--p:0">−30</i><i style="--p:.25">−24</i><i style="--p:.5">−18</i><i style="--p:.75">−12</i><i style="--p:1">−6</i></div>
+            <div class="medidor-barra"><div class="medidor-nivel" data-nivel></div><div class="medidor-meta" title="Meta: −14 LUFS"><span>Meta −14</span></div></div>
+            <div class="medidor-lectura"><b data-lufs>−23</b> LUFS <span data-estado-vol>Muy bajo para redes</span></div>
+          </div>
+          <div class="lab-controles">
+            <button class="boton primario chico" data-normalizar>Normalizar</button>
+            <button class="boton secundario chico" data-reiniciar-vol>Volver al original</button>
+          </div>
+          <div class="redes"><span>YouTube</span><span>Instagram</span><span>Facebook</span><span>TikTok</span></div>
+        </div>
+
+        <div class="lab-cuerpo" data-panel="extraer" hidden>
+          <div class="formatos">
+            <button class="formato activo" data-formato="wav"><b>WAV</b><span>24 bits</span><small>Para editar en tu DAW</small></button>
+            <button class="formato" data-formato="mp3"><b>MP3</b><span>320 kbps</span><small>Para compartir</small></button>
+            <button class="formato" data-formato="copia"><b>Copia</b><span>Original</span><small>La pista tal cual, sin tocarla</small></button>
+          </div>
+          <div class="archivo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <span data-nombre-archivo>mi_video_audio.wav</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
   <section id="como">
     <div class="envoltura">
-      <div class="titulo">
+      <div class="titulo revelar">
         <span class="sobre">Cómo funciona</span>
         <h2>Cuatro pasos, sin conocimientos de edición</h2>
       </div>
-      <div class="pasos">
-        <div class="paso"><h3>Carga el video</h3><p>Arrástralo a la ventana o elígelo desde tus archivos. MP4, MOV, MKV, AVI y más.</p></div>
-        <div class="paso"><h3>Sincroniza</h3><p>Pulsa «Iniciar sincronización» y mira el avance en porcentaje.</p></div>
-        <div class="paso"><h3>Revisa</h3><p>Reproduce el inicio, el final o el recorte con la corrección aplicada. Ajusta los milisegundos si quieres.</p></div>
-        <div class="paso"><h3>Guarda</h3><p>Se crea un video nuevo junto al original, listo para publicar.</p></div>
+
+      <div class="recorrido revelar" id="recorrido">
+        <ol class="recorrido-pasos">
+          <li><button data-paso="0" aria-selected="true"><b>Carga el video</b><span>Arrástralo a la ventana o elígelo desde tus archivos. MP4, MOV, MKV, AVI y más.</span><i class="avance"></i></button></li>
+          <li><button data-paso="1" aria-selected="false"><b>Sincroniza</b><span>Pulsa «Iniciar sincronización» y mira el avance en porcentaje.</span><i class="avance"></i></button></li>
+          <li><button data-paso="2" aria-selected="false"><b>Revisa</b><span>Reproduce el inicio, el final o el recorte con la corrección aplicada. Ajusta los milisegundos si quieres.</span><i class="avance"></i></button></li>
+          <li><button data-paso="3" aria-selected="false"><b>Guarda</b><span>Se crea un video nuevo junto al original, listo para publicar.</span><i class="avance"></i></button></li>
+        </ol>
+        <div class="recorrido-vista">
+          <div class="vista activa" data-vista="0">
+            <div class="soltar">
+              <div class="archivo-volando"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>concierto.mp4</div>
+              <p>Suelta tu video aquí</p>
+            </div>
+          </div>
+          <div class="vista" data-vista="1">
+            <div class="sinc">
+              <div class="sinc-cifra"><b data-porc>0</b>%</div>
+              <div class="barra-avance grande"><i data-barra-porc></i></div>
+              <p data-fase-paso>Leyendo la imagen…</p>
+            </div>
+          </div>
+          <div class="vista" data-vista="2">
+            <img src="img/reproductor.png" width="936" height="628" alt="Reproductor integrado de SincroVoz mostrando el recorte con la sincronía aplicada" loading="lazy" class="ampliable">
+          </div>
+          <div class="vista" data-vista="3">
+            <div class="guardado">
+              <svg viewBox="0 0 52 52" width="72" height="72" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#4fd18b" stroke-width="3"/><path class="check" d="M15 27l7 7 15-15" fill="none" stroke="#4fd18b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <b>concierto_sincronizado.mp4</b>
+              <span>Guardado junto al original · listo para publicar</span>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="galeria" style="margin-top:28px">
-        <figure>
-          <div class="marco"><img src="img/reproductor.png" width="936" height="628" alt="Reproductor integrado de SincroVoz mostrando el recorte con la sincronía aplicada" loading="lazy"></div>
+        <figure class="revelar">
+          <div class="marco"><img src="img/reproductor.png" width="936" height="628" alt="Reproductor integrado de SincroVoz mostrando el recorte con la sincronía aplicada" loading="lazy" class="ampliable"></div>
           <figcaption><b>Reproductor integrado</b>Mira y escucha el resultado antes de guardar, con sincronía, recorte y volumen aplicados.</figcaption>
         </figure>
-        <figure>
-          <div class="marco"><img src="img/licencia.png" width="492" height="320" alt="Ventana de licencia de SincroVoz con la licencia activa" loading="lazy"></div>
-          <figcaption><b>Tu licencia, en dos computadores</b>Actívala con la clave que llega a tu correo. Para cambiar de PC, desactívala con un clic.</figcaption>
+        <figure class="revelar">
+          <div class="marco"><img src="img/licencia.png" width="492" height="320" alt="Ventana de licencia de SincroVoz con la licencia activa" loading="lazy" class="ampliable"></div>
+          <figcaption><b>Tu licencia, en dos computadores</b>Actívala con la clave que llega a tu correo después de la compra.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
+  <!-- PRECIO -->
   <section id="precio">
     <div class="envoltura">
-      <div class="titulo">
+      <div class="titulo revelar">
         <span class="sobre">Precio</span>
         <h2>Un solo pago. Sin suscripciones.</h2>
         <p>Descárgalo y pruébalo gratis con tus propios videos. Cuando te convenza, compra la licencia para guardar.</p>
       </div>
-      <div class="precio">
+      <div class="precio revelar">
         <div class="linea-grad"></div>
         <div class="cuerpo">
-          <div class="antes">9,99 USD</div>
-          <div class="valor">4,99 <small>USD</small></div>
-          <div class="cupon">Precio de lanzamiento con el cupón <code>LANZAMIENTO</code></div>
+          <div class="antes" data-cupon-vigente>9,99 USD</div>
+          <div class="valor"><span data-precio>9,99</span> <small>USD</small></div>
+          <div data-cupon-vigente>
+            <div class="cupon">Precio de lanzamiento con el cupón
+              <button class="copiar" data-copiar="LANZAMIENTO" title="Copiar cupón"><code>LANZAMIENTO</code>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <div class="reloj" aria-live="polite">
+              <div><b data-r="d">00</b><span>días</span></div>
+              <div><b data-r="h">00</b><span>horas</span></div>
+              <div><b data-r="m">00</b><span>min</span></div>
+              <div><b data-r="s">00</b><span>seg</span></div>
+            </div>
+          </div>
           <ul>
             <li>Pago único, la licencia no vence</li>
             <li>Válida en 2 computadores</li>
             <li>Guarda videos y extrae audio sin límites</li>
             <li>Pago seguro con tarjeta o PayPal</li>
-            <li>La clave llega a tu correo al instante</li>
+            <li>La clave llega a tu correo al terminar la compra</li>
             <li>Soporte por correo electrónico</li>
           </ul>
           <a class="boton primario" data-comprar href="#">Comprar licencia</a>
@@ -136,44 +336,57 @@
     </div>
   </section>
 
+  <!-- PREGUNTAS -->
   <section id="preguntas">
     <div class="envoltura dos">
-      <div class="req">
+      <div class="req revelar">
         <h3>Requisitos</h3>
         <dl>
           <dt>Sistema</dt><dd>Windows 8.1, 10 u 11 (64 bits)</dd>
           <dt>Espacio</dt><dd>500 MB libres</dd>
-          <dt>Internet</dt><dd>Solo para activar la licencia</dd>
+          <dt>Internet</dt><dd>Para activar la licencia y confirmarla de vez en cuando</dd>
           <dt>Formatos</dt><dd>MP4, MOV, MKV, AVI, WEBM, M4V, MTS, 3GP</dd>
           <dt>Idioma</dt><dd>Español</dd>
         </dl>
       </div>
-      <div>
+      <div class="revelar">
         <div class="titulo" style="text-align:left;margin:0 0 20px"><span class="sobre">Preguntas frecuentes</span></div>
         <details open>
           <summary>¿Qué puedo hacer con la versión de prueba?</summary>
-          <p>Todo: cargar, sincronizar, recortar, quitar el ruido, normalizar y ver el resultado en el reproductor integrado. Para guardar el video corregido y extraer el audio necesitas la licencia.</p>
+          <div class="respuesta"><p>Todo: cargar, sincronizar, recortar, quitar el ruido, normalizar y ver el resultado en el reproductor integrado. Para guardar el video corregido y extraer el audio necesitas la licencia.</p></div>
         </details>
         <details>
           <summary>¿Mis videos se suben a internet?</summary>
-          <p>No. Todo el proceso ocurre en tu computador. SincroVoz solo se conecta a internet para activar y confirmar la licencia, y en ese momento envía únicamente la clave y el nombre del equipo.</p>
+          <div class="respuesta"><p>No. Todo el proceso ocurre en tu computador. SincroVoz solo se conecta a internet para activar y confirmar la licencia, y en ese momento envía únicamente la clave de licencia.</p></div>
         </details>
         <details>
           <summary>¿Pierde calidad mi video?</summary>
-          <p>No. La imagen se copia tal cual, sin volver a comprimirla. Solo se ajusta el audio. Si eliges el recorte «Exacto», la imagen se procesa en calidad visualmente idéntica.</p>
+          <div class="respuesta"><p>No. La imagen se copia tal cual, sin volver a comprimirla. Solo se ajusta el audio. Si eliges el recorte «Exacto», la imagen se procesa en calidad visualmente idéntica.</p></div>
         </details>
         <details>
           <summary>¿Cómo paso la licencia a otro computador?</summary>
-          <p>La licencia funciona en 2 computadores a la vez. Para usarla en otro, abre la ventana de licencia y pulsa «Desactivar en este equipo»; después actívala en el nuevo con la misma clave.</p>
+          <div class="respuesta"><p>La licencia funciona en 2 computadores. Para usarla en uno nuevo, desactívala en el equipo anterior desde la ventana de licencia y escríbenos a soporte para liberar ese lugar. Después actívala en el nuevo con la misma clave.</p></div>
         </details>
         <details>
           <summary>Perdí mi clave de licencia</summary>
-          <p>Está en el correo de compra. También puedes verla en escribirnos a soporte con el correo con el que compraste y el número de pedido.</p>
+          <div class="respuesta"><p>Está en el correo de compra. Si no la encuentras, escríbenos a soporte con el correo con el que compraste y el número de pedido.</p></div>
         </details>
         <details>
           <summary>¿Puedo pedir un reembolso?</summary>
-          <p>Sí. Consulta la <a href="reembolsos.html">política de reembolsos</a>.</p>
+          <div class="respuesta"><p>Sí. Consulta la <a href="reembolsos.html">política de reembolsos</a>.</p></div>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- LLAMADO FINAL -->
+  <section class="final">
+    <div class="envoltura revelar">
+      <h2>Tu próximo video, <span class="grad">en sincronía</span></h2>
+      <p>Pruébalo gratis y compra la licencia solo cuando te convenza.</p>
+      <div class="acciones">
+        <a class="boton primario" data-comprar href="#">Comprar licencia</a>
+        <a class="boton secundario" data-descargar href="#">Descargar prueba gratis</a>
       </div>
     </div>
   </section>
@@ -182,7 +395,7 @@
 <footer>
   <div class="envoltura">
     <div>
-      <a class="marca" href="#" style="margin-bottom:10px"><img src="img/logo.png" alt="">SincroVoz</a>
+      <a class="marca" href="#inicio" style="margin-bottom:10px"><img src="img/logo.png" alt="">SincroVoz</a>
       <div>© 2026 OveD.co · Titular: Franky Oved López Rincón · Colombia</div>
       <div>Soporte: <a href="mailto:soporte.dgbusiness@gmail.com">soporte.dgbusiness@gmail.com</a></div>
     </div>
@@ -195,6 +408,10 @@
   </div>
 </footer>
 
+<div class="visor" hidden><button class="visor-cerrar" aria-label="Cerrar">×</button><img alt=""></div>
+<div class="aviso" role="status" aria-live="polite"></div>
+
 <script src="sitio.js"></script>
+<script src="interactivo.js"></script>
 </body>
 </html>
