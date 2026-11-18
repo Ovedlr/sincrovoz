@@ -11,4 +11,4 @@
 ⬇️ Descarga: [última versión](https://github.com/Ovedlr/sincrovoz/releases/latest)
 ✉️ Soporte: soporte.dgbusiness@gmail.com
 
-Este repositorio contiene el sitio web y los instaladores publicados. © 2026 Franky Oved López Rincón.
+Este repositorio contiene el sitio web y los instaladores publicados. © 2026 OveD.co.
